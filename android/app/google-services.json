@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "829344864503",
+    "project_id": "t4tdemo-app",
+    "storage_bucket": "t4tdemo-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829344864503:android:e3d5c51887c26ba8b3dbf2",
+        "android_client_info": {
+          "package_name": "com.example.tfortdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829344864503-olm1m282i30faeq4uuh88r9556mk2iso.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tfortdemo",
+            "certificate_hash": "985bf0d6f731baf2086f2261d29f3a474a752116"
+          }
+        },
+        {
+          "client_id": "829344864503-5e46bvtvvgrqs5ivumosvidu90f93n31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDch2OCDYLnlcoKjM4kE91x4dk3upF-czI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829344864503-5e46bvtvvgrqs5ivumosvidu90f93n31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
