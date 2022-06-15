@@ -7,3 +7,4 @@ hexStringToColor(String hexColor) {
   }
   return Color(int.parse(hexColor, radix: 16));
 }
+// hexStringToColor("#5b8c2a")

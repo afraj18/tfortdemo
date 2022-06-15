@@ -3,6 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:tfortdemo/models/user.dart';
+import 'package:tfortdemo/services/database.dart';
 
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -32,11 +33,26 @@ class AuthService {
   }
 
   //Register in with Email pass
-  Future registerWithEmailAndPassword(String email, String password) async {
+  Future registerWithEmailAndPassword(
+    String email,
+    String password,
+    String name,
+    String address,
+    String phoneNo,
+  ) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       User? user = result.user;
+
+      // Create new document for the user with uid
+      await DatabaseService(uid: user!.uid).UpdateUserData(
+        name,
+        email,
+        "Investor",
+        address,
+        phoneNo,
+      );
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());

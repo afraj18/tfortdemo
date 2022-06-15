@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
 import 'package:tfortdemo/utills/colors_utills.dart';
 
@@ -100,6 +101,49 @@ TextFormField reusableEmailField(String text, IconData icon,
     keyboardType: isPasswordType
         ? TextInputType.visiblePassword
         : TextInputType.emailAddress,
+  );
+}
+
+IntlPhoneField reusableNumberField(String text, IconData icon,
+    bool isPasswordType, TextEditingController controller) {
+  return IntlPhoneField(
+    initialCountryCode: 'LK',
+    validator: (val) {
+      if (val == null) {
+        return "Phone number is not specified";
+      } // else if (!regex.hasMatch(val)) {
+      //   return "Invalid email format";
+      // }
+      return null;
+    },
+    // (val) => val!.isEmpty ? 'Enter an email address' : null,
+    controller: controller,
+    obscureText: isPasswordType,
+    cursorColor: Colors.white,
+    style: TextStyle(
+      color: Colors.white.withOpacity(.9),
+    ),
+    decoration: InputDecoration(
+      prefixIcon: Icon(
+        icon,
+        color: Colors.white70,
+      ),
+      labelText: text,
+      labelStyle: TextStyle(
+        color: Colors.white70.withOpacity(.9),
+      ),
+      filled: true,
+      floatingLabelBehavior: FloatingLabelBehavior.never,
+      fillColor: hexStringToColor("#5b8c2a").withOpacity(.7),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.0),
+        borderSide: const BorderSide(
+          width: 0,
+          style: BorderStyle.none,
+        ),
+      ),
+    ),
+    keyboardType: TextInputType.number,
   );
 }
 

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 // import 'package:tfortdemo/Screens/signUpScreen.dart';
 import 'package:tfortdemo/reusable_widgets/reusable_widget.dart';
 import 'package:tfortdemo/services/auth.dart';
+import 'package:tfortdemo/shared/loading.dart';
 import 'package:tfortdemo/utills/colors_utills.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -27,105 +28,94 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        decoration: BoxDecoration(
-          color: Colors.white,
-        ),
-        child: SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(
-              20, MediaQuery.of(context).size.height * 0.05, 20, 0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: <Widget>[
-                logoWidget('assets/images/t4tLogo.png'),
-                SizedBox(
-                  height: 20,
+    return loading
+        ? Loading()
+        : Scaffold(
+            body: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: SingleChildScrollView(
+                padding: EdgeInsets.fromLTRB(
+                    20, MediaQuery.of(context).size.height * 0.05, 20, 0),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    children: <Widget>[
+                      logoWidget('assets/images/t4tLogo.png'),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      reusableEmailField("Enter email", Icons.email_outlined,
+                          false, _emailController),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      reusablePasswordField("Enter Password",
+                          Icons.lock_outline, _passwordController),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      signInSignUpButton(
+                        context,
+                        true,
+                        () async {
+                          if (_formKey.currentState!.validate()) {
+                            // print(_emailController.text);
+                            // print(_passwordController.text);
+                            setState(() {
+                              loading = true;
+                            });
+                            dynamic result =
+                                await _auth.signInWithEmailAndPassword(
+                                    _emailController.text,
+                                    _passwordController.text);
+                            if (result == null) {
+                              setState(() {
+                                loading = false;
+                                error = "Invalid email / password";
+                              });
+                            }
+                          }
+                          // print(_emailController);
+                          // print(_passwordController);
+                          // if (_emailController.text.isNotEmpty &&
+                          //     _passwordController.text.isNotEmpty) {
+                          //   await FirebaseAuth.instance
+                          //       .signInWithEmailAndPassword(
+                          //           email: _emailController.text,
+                          //           password: _passwordController.text)
+                          //       .then(
+                          //         (value) => Navigator.push(
+                          //           context,
+                          //           MaterialPageRoute(
+                          //               builder: (context) => homeScreen()),
+                          //         ),
+                          //       )
+                          //       .onError((error, stackTrace) => {
+                          //             print("Error" + error.toString()),
+                          //           });
+                          // } else {
+                          //   print("Fill All fields");
+                          // }
+                        },
+                      ),
+                      SizedBox(
+                        height: 1,
+                      ),
+                      Text(
+                        error,
+                        style: TextStyle(color: Colors.red),
+                      ),
+                      SignUpOption(),
+                    ],
+                  ),
                 ),
-                reusableEmailField("Enter email", Icons.email_outlined, false,
-                    _emailController),
-                SizedBox(
-                  height: 20,
-                ),
-                reusablePasswordField(
-                    "Enter Password", Icons.lock_outline, _passwordController),
-                SizedBox(
-                  height: 10,
-                ),
-                signInSignUpButton(
-                  context,
-                  true,
-                  () async {
-                    if (_formKey.currentState!.validate()) {
-                      print(_emailController.text);
-                      print(_passwordController.text);
-
-                      dynamic result = await _auth.signInWithEmailAndPassword(
-                          _emailController.text, _passwordController.text);
-                      if (result == null) {
-                        setState(() => error = "Invalid email / password");
-                      }
-                    }
-                    // print(_emailController);
-                    // print(_passwordController);
-                    // if (_emailController.text.isNotEmpty &&
-                    //     _passwordController.text.isNotEmpty) {
-                    //   await FirebaseAuth.instance
-                    //       .signInWithEmailAndPassword(
-                    //           email: _emailController.text,
-                    //           password: _passwordController.text)
-                    //       .then(
-                    //         (value) => Navigator.push(
-                    //           context,
-                    //           MaterialPageRoute(
-                    //               builder: (context) => homeScreen()),
-                    //         ),
-                    //       )
-                    //       .onError((error, stackTrace) => {
-                    //             print("Error" + error.toString()),
-                    //           });
-                    // } else {
-                    //   print("Fill All fields");
-                    // }
-                  },
-                ),
-                SizedBox(
-                  height: 1,
-                ),
-
-                Text(
-                  error,
-                  style: TextStyle(color: Colors.red),
-                ),
-                SignUpOption(),
-                // ElevatedButton(
-                //   style: ButtonStyle(
-                //     backgroundColor: MaterialStateProperty.resolveWith(
-                //       (states) {
-                //         return hexStringToColor("#5b8c2a");
-                //       },
-                //     ),
-                //   ),
-                //   onPressed: () async {
-                //     dynamic result = await _auth.signInAnnoy();
-                //     if (result == null) {
-                //       print("error in Sign in");
-                //     } else {
-                //       print("Sign In");
-                //       print(result.uid);
-                //     }
-                //   },
-                //   child: Text("Sign In Annoymious"),
-                // ),
-              ],
+              ),
             ),
-          ),
-        ),
-      ),
-    );
+          );
   }
 
   Row SignUpOption() {

@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:tfortdemo/Screens/wrapper.dart';
 import 'package:tfortdemo/models/user.dart';
 import 'package:tfortdemo/services/auth.dart';
+import 'package:tfortdemo/utills/colors_utills.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +24,10 @@ class MyApp extends StatelessWidget {
       initialData: null,
       child: MaterialApp(
         home: Wrapper(),
+        title: "Trash4Trade",
+        theme: ThemeData(
+          primaryColor: hexStringToColor("#5b8c2a"),
+        ),
         debugShowCheckedModeBanner: false,
       ),
     );
