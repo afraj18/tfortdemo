@@ -1,5 +1,5 @@
 // ignore: file_names
-// ignore_for_file: file_names, prefer_const_constructors, prefer_const_constructors_in_immutables
+// ignore_for_file: file_names, prefer_const_constructors, prefer_const_constructors_in_immutables, duplicate_ignore, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'package:tfortdemo/models/userData.dart';

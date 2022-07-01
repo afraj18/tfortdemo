@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, avoid_print, avoid_function_literals_in_foreach_calls
+// ignore_for_file: file_names, avoid_print, avoid_function_literals_in_foreach_calls, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

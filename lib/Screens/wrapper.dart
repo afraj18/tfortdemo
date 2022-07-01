@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tfortdemo/Screens/home/home.dart';
+import 'package:tfortdemo/Screens/home/home_Screen.dart';
+// import 'package:tfortdemo/Screens/splash/splashScreen.dart';
 
 import 'package:tfortdemo/models/user.dart';
 
@@ -18,7 +20,9 @@ class Wrapper extends StatelessWidget {
     if (user == null) {
       return Authenticate();
     } else {
-      return Home();
+      // return Home();
+      return Home_Screen();
+      // return splash_Screen();
     }
   }
 }

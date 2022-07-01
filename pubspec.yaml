@@ -40,6 +40,7 @@ dependencies:
   uuid: ^3.0.6
   flutter_spinkit: ^5.1.0
   intl_phone_field: ^3.1.0
+  flutter_svg: ^1.0.2
 
 dependency_overrides:
   firebase_messaging_platform_interface: 3.1.6
@@ -77,6 +78,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/icons/
     - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -101,6 +103,16 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+  fonts:
+    - family: Gordita
+      fonts:
+        - asset: assets/fonts/Gordita_Regular.otf
+        - asset: assets/fonts/Gordita_Medium.otf
+          weight: 500
+        - asset: assets/fonts/Gordita_Bold.otf
+          weight: 700
+        - asset: assets/fonts/Gordita_Light.otf
+          weight: 300
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

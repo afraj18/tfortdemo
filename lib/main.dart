@@ -3,10 +3,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tfortdemo/Screens/wrapper.dart';
+import 'package:tfortdemo/Screens/splash/splashScreen.dart';
+// import 'package:tfortdemo/Screens/wrapper.dart';
 import 'package:tfortdemo/models/user.dart';
 import 'package:tfortdemo/services/auth.dart';
-import 'package:tfortdemo/utills/colors_utills.dart';
+import 'package:tfortdemo/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,11 +24,9 @@ class MyApp extends StatelessWidget {
       value: AuthService().user,
       initialData: null,
       child: MaterialApp(
-        home: Wrapper(),
+        home: splash_Screen(),
         title: "Trash4Trade",
-        theme: ThemeData(
-          primaryColor: hexStringToColor("#5b8c2a"),
-        ),
+        theme: theme(),
         debugShowCheckedModeBanner: false,
       ),
     );
