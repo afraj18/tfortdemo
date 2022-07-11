@@ -9,6 +9,10 @@ import 'package:tfortdemo/Screens/home/HSComponents/NavBarButtons.dart';
 import 'package:tfortdemo/Screens/home/HSComponents/categories.dart';
 import 'package:tfortdemo/Screens/home/HSComponents/searchField.dart';
 import 'package:tfortdemo/Screens/home/HSComponents/sectionTitle.dart';
+import 'package:tfortdemo/Screens/home/HSComponents/specialOfferCard.dart';
+import 'package:tfortdemo/Screens/home/components/productCard.dart';
+// import 'package:tfortdemo/models/Product.dart';
+import 'package:tfortdemo/models/Product_Model.dart';
 import 'package:tfortdemo/size_confiq.dart';
 import 'package:tfortdemo/utills/constants.dart';
 
@@ -22,37 +26,78 @@ class Body extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(
-              height: getProportionateScreenWidth(20),
+              height: getProportionateScreenWidth(10),
             ),
             HomeHeader(),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             DiscountBanner(
               text1: "First Purchase Offer",
               text2: "Cash Discount 50%",
             ),
             SizedBox(
-              height: 20,
+              height: 17.5,
             ),
             Categories(),
             SizedBox(
-              height: 10,
+              height: 5,
             ),
             SectionTitle(
               text: "Special for you",
               press: () {},
             ),
             SizedBox(
-              width: getProportionateScreenWidth(242),
-              height: getProportionateScreenWidth(100),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  "assets/images/product1.jpg",
-                  fit: BoxFit.cover,
-                ),
+              height: 8,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SpecialOfferCard(
+                    category: "Wood Products",
+                    subTitle: "Best Quality",
+                    image: "assets/images/product1.jpg",
+                    press: () {},
+                  ),
+                  SpecialOfferCard(
+                    category: "Wood Products",
+                    subTitle: "Best Quality",
+                    image: "assets/images/product8.jpg",
+                    press: () {},
+                  ),
+                ],
               ),
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            Column(
+              children: [
+                SectionTitle(
+                  text: "Popular Products",
+                  press: () {},
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      ...List.generate(
+                        demoProduct.length,
+                        (index) => ProductCard(
+                          product: demoProduct[index],
+                        ),
+                      ),
+                      SizedBox(
+                        width: getProportionateScreenWidth(20),
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),

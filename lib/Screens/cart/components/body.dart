@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tfortdemo/Screens/cart/components/cartItemCart.dart';
 import 'package:tfortdemo/models/cart.dart';
 import 'package:tfortdemo/size_confiq.dart';
-import 'package:tfortdemo/utills/constants.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);

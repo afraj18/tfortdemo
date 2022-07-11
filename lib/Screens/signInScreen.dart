@@ -2,8 +2,6 @@
 
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:tfortdemo/Screens/homeScreen.dart';
-// import 'package:tfortdemo/Screens/signUpScreen.dart';
 import 'package:tfortdemo/reusable_widgets/reusable_widget.dart';
 import 'package:tfortdemo/services/auth.dart';
 import 'package:tfortdemo/shared/loading.dart';

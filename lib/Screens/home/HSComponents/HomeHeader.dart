@@ -3,13 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:tfortdemo/Screens/home/HSComponents/NavBarButtons.dart';
 import 'package:tfortdemo/Screens/home/HSComponents/searchField.dart';
+import 'package:tfortdemo/services/auth.dart';
 import 'package:tfortdemo/size_confiq.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({
+  HomeHeader({
     Key? key,
   }) : super(key: key);
-
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,7 +29,9 @@ class HomeHeader extends StatelessWidget {
           ),
           NavBarButton(
             icon: Icon(Icons.person_outlined),
-            press: () {},
+            press: () async {
+              await _auth.signOut();
+            },
           ),
         ],
       ),

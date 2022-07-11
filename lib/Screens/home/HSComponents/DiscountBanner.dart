@@ -22,9 +22,9 @@ class DiscountBanner extends StatelessWidget {
       ),
       padding: EdgeInsets.symmetric(
         horizontal: getProportionateScreenWidth(25),
-        vertical: getProportionateScreenWidth(25),
+        vertical: getProportionateScreenWidth(15),
       ),
-      height: 90,
+      height: 75,
       decoration: BoxDecoration(
         color: Color(0xFF4A3298),
         borderRadius: BorderRadius.circular(20),
@@ -37,7 +37,7 @@ class DiscountBanner extends StatelessWidget {
             TextSpan(
               text: text2,
               style: TextStyle(
-                fontSize: 25,
+                fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),

@@ -4,7 +4,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tfortdemo/Screens/splash/splashScreen.dart';
-// import 'package:tfortdemo/Screens/wrapper.dart';
 import 'package:tfortdemo/models/user.dart';
 import 'package:tfortdemo/services/auth.dart';
 import 'package:tfortdemo/theme.dart';
@@ -25,7 +24,7 @@ class MyApp extends StatelessWidget {
       initialData: null,
       child: MaterialApp(
         home: splash_Screen(),
-        title: "Trash4Trade",
+        title: "UpCycler's Lab",
         theme: theme(),
         debugShowCheckedModeBanner: false,
       ),
