@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 class Product {
+  final int id;
   final String title, description;
   final List<String> images;
   final List<Color> colors;
@@ -10,6 +11,7 @@ class Product {
   final bool isFavourite, isPopular;
 
   Product({
+    required this.id,
     required this.title,
     required this.colors,
     required this.description,
@@ -25,16 +27,18 @@ class Product {
 
 List<Product> demoProduct = [
   Product(
-    title: "Wood Chair",
+    id: 1,
+    title: "Custom Texted Bar",
     colors: [Color(0xFF6625E), Color(0xFF836D88)],
     description: "description",
-    images: ["assets/images/product6.jpg", "assets/images/product7.jpg"],
-    price: 2000.00,
-    rating: 4.0,
+    images: ["assets/images/product2.jpg"],
+    price: 1500,
+    rating: 3.5,
     isFavourite: true,
     isPopular: true,
   ),
   Product(
+    id: 2,
     title: "Wood Table ",
     colors: [Color(0xFF6625E), Color(0xFF836D88)],
     description: "description",
@@ -47,10 +51,22 @@ List<Product> demoProduct = [
     isPopular: true,
   ),
   Product(
-    title: "Antique Wrist Watch",
+    id: 3,
+    title: "Recycled Chair",
     colors: [Color(0xFF6625E), Color(0xFF836D88)],
     description: "description",
-    images: ["assets/images/product9.jpg"],
+    images: ["assets/images/product6.jpg", "assets/images/product7.jpg"],
+    price: 2000.00,
+    rating: 4.0,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
+    id: 4,
+    title: "Kids Building Box",
+    colors: [Color(0xFF6625E), Color(0xFF836D88)],
+    description: "description",
+    images: ["assets/images/product5.jpg"],
     price: 2000,
     rating: 4.0,
     isFavourite: true,

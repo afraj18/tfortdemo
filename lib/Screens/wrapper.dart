@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tfortdemo/Screens/home/home.dart';
 import 'package:tfortdemo/Screens/home/home_Screen.dart';
 // import 'package:tfortdemo/Screens/splash/splashScreen.dart';
 

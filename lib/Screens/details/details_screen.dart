@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:tfortdemo/models/Product.dart';
+// import 'package:tfortdemo/models/Product.dart';
+import 'package:tfortdemo/models/Product_Model.dart';
 import 'package:tfortdemo/utills/colors_utills.dart';
 
 import 'components/color_dot.dart';
@@ -13,7 +14,7 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: product.bgColor,
+      // backgroundColor: product.bgColor,
       appBar: AppBar(
         leading: const BackButton(color: Colors.black),
         actions: [
@@ -32,7 +33,7 @@ class DetailsScreen extends StatelessWidget {
       body: Column(
         children: [
           Image.asset(
-            product.image,
+            product.images[0],
             height: MediaQuery.of(context).size.height * 0.3,
             fit: BoxFit.cover,
           ),
@@ -101,7 +102,7 @@ class DetailsScreen extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                            primary: primaryColor,
+                            primary: hexStringToColor("#5b8c2a"),
                             shape: const StadiumBorder()),
                         child: const Text("Add to Cart"),
                       ),

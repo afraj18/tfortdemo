@@ -1,27 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tfortdemo/models/Category.dart';
-import 'package:tfortdemo/utills/colors_utills.dart';
+import 'package:tfortdemo/size_confiq.dart';
 
-class Categories extends StatelessWidget {
-  const Categories({
+class CategoriesHomeScreen extends StatelessWidget {
+  const CategoriesHomeScreen({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 84,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: demo_categories.length,
-        itemBuilder: (context, index) => CategoryCard(
-          icon: demo_categories[index].icon,
-          title: demo_categories[index].title,
-          press: () {},
-        ),
-        separatorBuilder: (context, index) =>
-            const SizedBox(width: defaultPadding),
+    List<Map<String, dynamic>> categories = [
+      {"icon": "assets/icons/Flash Icon.svg", "text": "Offers"},
+      {"icon": "assets/icons/Gift Icon.svg", "text": "Gifts"},
+      {"icon": "assets/icons/Bill Icon.svg", "text": "Bill"},
+      {"icon": "assets/icons/Game Icon.svg", "text": "Games"},
+      {"icon": "assets/icons/Discover.svg", "text": "More"},
+    ];
+    return Padding(
+      padding:
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ...List.generate(
+            categories.length,
+            (index) => CategoryCard(
+              icon: categories[index]["icon"],
+              text: categories[index]["text"],
+              press: () {},
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -30,33 +40,39 @@ class Categories extends StatelessWidget {
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
     Key? key,
-    required this.icon,
-    required this.title,
+    this.icon,
+    this.text,
     required this.press,
   }) : super(key: key);
 
-  final String icon, title;
-  final VoidCallback press;
+  final icon, text;
+  final GestureTapCallback press;
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton(
-      onPressed: press,
-      style: OutlinedButton.styleFrom(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(defaultBorderRadius)),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(
-            vertical: defaultPadding / 2, horizontal: defaultPadding / 4),
+    return GestureDetector(
+      onTap: press,
+      child: SizedBox(
+        width: getProportionateScreenWidth(50),
         child: Column(
           children: [
-            SvgPicture.asset(icon),
-            const SizedBox(height: defaultPadding / 2),
+            AspectRatio(
+              aspectRatio: 1,
+              child: Container(
+                padding: EdgeInsets.all(getProportionateScreenWidth(15)),
+                decoration: BoxDecoration(
+                  color: Color(0xFFFFECDF),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: SvgPicture.asset(icon),
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
             Text(
-              title,
-              style: Theme.of(context).textTheme.subtitle2,
+              text,
+              textAlign: TextAlign.center,
             )
           ],
         ),

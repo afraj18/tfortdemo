@@ -43,7 +43,7 @@ class CheckOutCard extends StatelessWidget {
               children: [
                 Container(
                   padding: EdgeInsets.all(10),
-                  height: getProportionateScreenHeight(70),
+                  height: getProportionateScreenHeight(50),
                   width: getProportionateScreenWidth(40),
                   decoration: BoxDecoration(
                     color: Color(0xFFF5F6F9),

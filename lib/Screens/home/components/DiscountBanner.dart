@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:tfortdemo/size_confiq.dart';
+import 'package:tfortdemo/utills/colors_utills.dart';
 
 class DiscountBanner extends StatelessWidget {
   const DiscountBanner({
@@ -26,7 +27,8 @@ class DiscountBanner extends StatelessWidget {
       ),
       height: 75,
       decoration: BoxDecoration(
-        color: Color(0xFF4A3298),
+        // color: Color(0xFF4A3298),
+        color: hexStringToColor("#5b8c2a"),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text.rich(
