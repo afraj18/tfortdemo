@@ -16,58 +16,61 @@ class SpecialOfferCard extends StatelessWidget {
   final GestureTapCallback press;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: getProportionateScreenWidth(28),
-      ),
-      child: SizedBox(
-        width: getProportionateScreenWidth(242),
-        height: getProportionateScreenWidth(85),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Stack(
-            children: [
-              Image.asset(
-                image,
-                width: getProportionateScreenWidth(250),
-                fit: BoxFit.cover,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xFF343434).withOpacity(0.4),
-                      Color(0xFF343434).withOpacity(.15),
-                    ],
-                  ),
+    return GestureDetector(
+      onTap: press,
+      child: Padding(
+        padding: EdgeInsets.only(
+          left: getProportionateScreenWidth(28),
+        ),
+        child: SizedBox(
+          width: getProportionateScreenWidth(242),
+          height: getProportionateScreenWidth(85),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Stack(
+              children: [
+                Image.asset(
+                  image,
+                  width: getProportionateScreenWidth(250),
+                  fit: BoxFit.cover,
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: getProportionateScreenWidth(15),
-                  vertical: getProportionateScreenWidth(10),
-                ),
-                child: Text.rich(
-                  TextSpan(
-                    style: TextStyle(
-                      color: Colors.white,
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Color(0xFF343434).withOpacity(0.4),
+                        Color(0xFF343434).withOpacity(.15),
+                      ],
                     ),
-                    children: [
-                      TextSpan(
-                        text: category + "\n",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      TextSpan(text: subTitle)
-                    ],
                   ),
                 ),
-              )
-            ],
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(15),
+                    vertical: getProportionateScreenWidth(10),
+                  ),
+                  child: Text.rich(
+                    TextSpan(
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: category + "\n",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(text: subTitle)
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

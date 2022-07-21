@@ -75,8 +75,8 @@ class ProductCard extends StatelessWidget {
                       getProportionateScreenWidth(30),
                     ),
                     child: Container(
-                      width: getProportionateScreenWidth(20),
-                      height: getProportionateScreenWidth(20),
+                      width: getProportionateScreenWidth(15),
+                      height: getProportionateScreenWidth(15),
                       decoration: BoxDecoration(
                         color: product['isFavourite']
                             ? Color(0xFF5b8c2a).withOpacity(.15)

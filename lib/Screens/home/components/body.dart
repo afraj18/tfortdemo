@@ -10,6 +10,8 @@ import 'package:tfortdemo/Screens/home/components/categories.dart';
 import 'package:tfortdemo/Screens/home/components/productCard.dart';
 import 'package:tfortdemo/Screens/home/components/sectionTitle.dart';
 import 'package:tfortdemo/Screens/home/components/specialOfferCard.dart';
+import 'package:tfortdemo/Screens/productCategory/plasticProductScreen.dart';
+import 'package:tfortdemo/Screens/productCategory/woodProductScreen.dart';
 
 import 'package:tfortdemo/models/Product_Model.dart';
 import 'package:tfortdemo/size_confiq.dart';
@@ -34,7 +36,7 @@ class Body extends StatelessWidget {
               height: 10,
             ),
             DiscountBanner(
-              text1: "First Purchase Offer",
+              text1: "Mid - Year Purchase Offer",
               text2: "Cash Discount 50%",
             ),
             SizedBox(
@@ -59,19 +61,35 @@ class Body extends StatelessWidget {
                     category: "Wood Products",
                     subTitle: "Best Quality",
                     image: "assets/images/product1.jpg",
-                    press: () {},
+                    press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WoodProducts(),
+                        ),
+                      );
+                    },
                   ),
                   SpecialOfferCard(
                     category: "Upcyled Plastic Products",
                     subTitle: "Best Quality",
                     image: "assets/images/product8.jpg",
-                    press: () {},
+                    press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PlasticProduct(
+                              // title: "Plastic Products",
+                              ),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
             ),
             SizedBox(
-              height: 12,
+              height: 15,
             ),
             Column(
               children: [
@@ -80,7 +98,7 @@ class Body extends StatelessWidget {
                   press: () {},
                 ),
                 SizedBox(
-                  height: 8,
+                  height: 15,
                 ),
                 // StreamBuilder<QuerySnapshot>(
                 //     stream: FirebaseFirestore.instance

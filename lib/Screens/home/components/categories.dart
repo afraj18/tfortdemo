@@ -10,14 +10,14 @@ class CategoriesHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/Flash Icon.svg", "text": "WishList"},
-      {"icon": "assets/icons/Gift Icon.svg", "text": "Cart"},
-      {"icon": "assets/icons/Bill Icon.svg", "text": "Profile"},
-      {"icon": "assets/icons/Trash.svg", "text": "About Us"},
+      {"icon": "assets/icons/Heart Icon_2.svg", "text": "WishList"},
+      {"icon": "assets/icons/Cart_2.svg", "text": "Cart"},
+      {"icon": "assets/icons/Avatar.svg", "text": "Profile"},
+      {"icon": "assets/icons/about_us.svg", "text": "About Us"},
     ];
     return Padding(
       padding:
-          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+          EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(25)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,

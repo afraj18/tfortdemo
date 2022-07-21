@@ -63,15 +63,15 @@ class DetailsScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: defaultPadding),
                       Text(
-                        "\$" + product['price'].toString(),
+                        "Rs. " + product['price'].toString(),
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     ],
                   ),
-                  const Padding(
+                  Padding(
                     padding: EdgeInsets.symmetric(vertical: defaultPadding),
                     child: Text(
-                      "A Henley shirt is a collarless pullover shirt, by a round neckline and a placket about 3 to 5 inches (8 to 13 cm) long and usually having 2–5 buttons.",
+                      product['description'],
                     ),
                   ),
                   Text(
