@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 // import 'package:tfortdemo/models/Product.dart';
@@ -9,7 +10,7 @@ import 'components/color_dot.dart';
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({Key? key, required this.product}) : super(key: key);
 
-  final Product product;
+  final DocumentSnapshot product;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class DetailsScreen extends StatelessWidget {
       body: Column(
         children: [
           Image.asset(
-            product.images[0],
+            product["image"][0],
             height: MediaQuery.of(context).size.height * 0.3,
             fit: BoxFit.cover,
           ),
@@ -56,13 +57,13 @@ class DetailsScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          product.title,
+                          product["title"],
                           style: Theme.of(context).textTheme.headline6,
                         ),
                       ),
                       const SizedBox(width: defaultPadding),
                       Text(
-                        "\$" + product.price.toString(),
+                        "\$" + product['price'].toString(),
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     ],

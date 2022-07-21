@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors, file_names
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tfortdemo/Screens/details/details_screen.dart';
 import 'package:tfortdemo/models/Product_Model.dart';
 import 'package:tfortdemo/size_confiq.dart';
+import 'package:tfortdemo/utills/colors_utills.dart';
 import 'package:tfortdemo/utills/constants.dart';
 
 class ProductCard extends StatelessWidget {
@@ -16,7 +18,7 @@ class ProductCard extends StatelessWidget {
   }) : super(key: key);
 
   final double width, aspectRatio;
-  final Product product;
+  final DocumentSnapshot product;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class ProductCard extends StatelessWidget {
                       color: kSecondaryColor.withOpacity(.1),
                       borderRadius: BorderRadius.circular(15)),
                   child: Image.asset(
-                    product.images[0],
+                    product['image'][0],
                   ),
                 ),
               ),
@@ -48,20 +50,22 @@ class ProductCard extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                product.title,
+                product['title'],
                 style: TextStyle(
                   color: Colors.black,
+                  fontWeight: FontWeight.w400,
+                  fontSize: getProportionateScreenWidth(15),
                 ),
                 maxLines: 2,
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    "Rs.${product.price}",
+                    "Rs.${product['price']}",
                     style: TextStyle(
-                      color: kPrimaryColor,
-                      fontWeight: FontWeight.w600,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w800,
                       fontSize: getProportionateScreenWidth(15),
                     ),
                   ),
@@ -74,15 +78,15 @@ class ProductCard extends StatelessWidget {
                       width: getProportionateScreenWidth(20),
                       height: getProportionateScreenWidth(20),
                       decoration: BoxDecoration(
-                        color: product.isFavourite
-                            ? kPrimaryColor.withOpacity(.15)
+                        color: product['isFavourite']
+                            ? Color(0xFF5b8c2a).withOpacity(.15)
                             : kSecondaryColor.withOpacity(.1),
                         shape: BoxShape.circle,
                       ),
                       child: SvgPicture.asset(
                         "assets/icons/Heart Icon_2.svg",
-                        color: product.isFavourite
-                            ? Color(0xFFFF4848)
+                        color: product['isFavourite']
+                            ? Color(0xFF5b8c2a).withOpacity(.7)
                             : Color(0xFFDBDEE4),
                       ),
                     ),

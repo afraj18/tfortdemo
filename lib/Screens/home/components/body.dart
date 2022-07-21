@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -19,6 +20,8 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Stream collectionRef =
+        FirebaseFirestore.instance.collection('products').snapshots();
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -59,7 +62,7 @@ class Body extends StatelessWidget {
                     press: () {},
                   ),
                   SpecialOfferCard(
-                    category: "Wood Products",
+                    category: "Upcyled Plastic Products",
                     subTitle: "Best Quality",
                     image: "assets/images/product8.jpg",
                     press: () {},
@@ -79,22 +82,62 @@ class Body extends StatelessWidget {
                 SizedBox(
                   height: 8,
                 ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      ...List.generate(
-                        demoProduct.length,
-                        (index) => ProductCard(
-                          product: demoProduct[index],
-                        ),
-                      ),
-                      SizedBox(
-                        width: getProportionateScreenWidth(20),
-                      )
-                    ],
-                  ),
-                ),
+                // StreamBuilder<QuerySnapshot>(
+                //     stream: FirebaseFirestore.instance
+                //         .collection("products")
+                //         .snapshots(),
+                //     builder: (context, snapshot) {
+                //       if (!snapshot.hasData) {
+                //         return Text("No Data");
+                //       } else
+                //         // ignore: curly_braces_in_flow_control_structures
+                //         return SingleChildScrollView(
+                //           scrollDirection: Axis.horizontal,
+                //           child: Row(
+                //             children: [
+                //               ...List.generate(
+                //                 demoProduct.length,
+                //                 // snapshot.data!.docs.length,
+                //                 (index) => ProductCard(
+                //                   product: demoProduct[index],
+                //                 ),
+                //               ),
+                //               SizedBox(
+                //                 width: getProportionateScreenWidth(20),
+                //               )
+                //             ],
+                //           ),
+                //         );
+                //     }),
+                StreamBuilder<QuerySnapshot>(
+                    stream: FirebaseFirestore.instance
+                        .collection("products")
+                        .snapshots(),
+                    builder: (context, snapshot) {
+                      if (!snapshot.hasData) {
+                        return Text("No Data");
+                      } else
+                        // ignore: curly_braces_in_flow_control_structures
+                        return SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              ...List.generate(
+                                // demoProduct.length,
+                                snapshot.data!.docs.length,
+                                (index) {
+                                  DocumentSnapshot productSnap =
+                                      snapshot.data!.docs[index];
+                                  return ProductCard(product: productSnap);
+                                },
+                              ),
+                              SizedBox(
+                                width: getProportionateScreenWidth(20),
+                              )
+                            ],
+                          ),
+                        );
+                    }),
               ],
             ),
           ],

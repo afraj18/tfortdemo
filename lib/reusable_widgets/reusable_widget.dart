@@ -86,12 +86,13 @@ TextFormField reusableEmailField(String text, IconData icon,
       labelText: text,
       labelStyle: TextStyle(
         color: Colors.white70.withOpacity(.9),
+        fontWeight: FontWeight.w600,
       ),
       filled: true,
       floatingLabelBehavior: FloatingLabelBehavior.never,
       fillColor: hexStringToColor("#5b8c2a").withOpacity(.7),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10.0),
+        borderRadius: BorderRadius.circular(4),
         borderSide: const BorderSide(
           width: 0,
           style: BorderStyle.none,
@@ -167,12 +168,13 @@ TextFormField reusablePasswordField(
       labelText: text,
       labelStyle: TextStyle(
         color: Colors.white70.withOpacity(.9),
+        fontWeight: FontWeight.w600,
       ),
       filled: true,
       floatingLabelBehavior: FloatingLabelBehavior.never,
       fillColor: hexStringToColor("#5b8c2a").withOpacity(.7),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10.0),
+      border: UnderlineInputBorder(
+        borderRadius: BorderRadius.circular(10),
         borderSide: const BorderSide(
           width: 0,
           style: BorderStyle.none,
