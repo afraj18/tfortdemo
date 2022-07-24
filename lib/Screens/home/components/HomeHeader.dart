@@ -8,6 +8,7 @@ import 'package:tfortdemo/Screens/home/components/NavBarButtons.dart';
 import 'package:tfortdemo/Screens/home/components/searchField.dart';
 import 'package:tfortdemo/services/auth.dart';
 import 'package:tfortdemo/size_confiq.dart';
+import 'package:tfortdemo/utills/colors_utills.dart';
 
 class HomeHeader extends StatelessWidget {
   HomeHeader({
@@ -27,14 +28,21 @@ class HomeHeader extends StatelessWidget {
             hintText: "Search Products",
           ),
           NavBarButton(
-            icon: Icon(Icons.shopping_cart_outlined),
+            icon: Icon(
+              Icons.feedback_outlined,
+              // color: hexStringToColor("#5b8c2a"),
+              // size: 30,
+            ),
             press: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => CartScreen()));
             },
           ),
           NavBarButton(
-            icon: Icon(Icons.person_outlined),
+            icon: Icon(
+              Icons.logout,
+              // color: hexStringToColor("#5b8c2a"),
+            ),
             press: () async {
               await _auth.signOut();
             },

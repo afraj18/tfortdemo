@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, prefer_const_constructors
+// ignore_for_file: file_names, prefer_const_constructors, unused_local_variable
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +9,12 @@ import 'components/CaterProductCard.dart';
 class WoodProducts extends StatelessWidget {
   const WoodProducts({Key? key}) : super(key: key);
   final String title = "Wood Products";
+
   @override
   Widget build(BuildContext context) {
+    // final catRef =
+    // FirebaseFirestore.instance.collection("products").snapshots();
+    // final query = catRef.where("category", isEqualTo: "Wood");
     return Scaffold(
       appBar: AppBar(
         title: Text(

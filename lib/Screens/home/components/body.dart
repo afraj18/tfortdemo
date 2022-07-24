@@ -37,7 +37,7 @@ class Body extends StatelessWidget {
             ),
             DiscountBanner(
               text1: "Mid - Year Purchase Offer",
-              text2: "Cash Discount 50%",
+              text2: "Cash Discount 15%",
             ),
             SizedBox(
               height: 20,
