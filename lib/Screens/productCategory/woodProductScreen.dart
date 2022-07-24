@@ -49,7 +49,7 @@ class WoodProducts extends StatelessWidget {
                             children: [
                               CaterProductCard(product: productSnap),
                               SizedBox(
-                                height: 100,
+                                height: 200,
                               )
                             ],
                           );
