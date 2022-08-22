@@ -12,9 +12,8 @@ class WoodProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final catRef =
-    // FirebaseFirestore.instance.collection("products").snapshots();
-    // final query = catRef.where("category", isEqualTo: "Wood");
+    final catRef = FirebaseFirestore.instance.collection("products");
+    final query = catRef.where("category", isEqualTo: "wood").snapshots();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -30,8 +29,8 @@ class WoodProducts extends StatelessWidget {
         padding:
             const EdgeInsets.only(top: 20.0, left: 20, right: 20, bottom: 8),
         child: StreamBuilder<QuerySnapshot>(
-            stream:
-                FirebaseFirestore.instance.collection("products").snapshots(),
+            stream: query,
+            // FirebaseFirestore.instance.collection("products").snapshots(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 return Text("No Data");

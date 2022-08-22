@@ -94,7 +94,7 @@ class Body extends StatelessWidget {
             Column(
               children: [
                 SectionTitle(
-                  text: "Popular Products",
+                  text: "Products you make like..",
                   press: () {},
                 ),
                 SizedBox(

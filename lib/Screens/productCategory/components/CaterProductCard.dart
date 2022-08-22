@@ -106,11 +106,23 @@ class CaterProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Rs.${product['price']}",
+                  product['title'],
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w400,
+                    fontSize: getProportionateScreenWidth(20),
+                  ),
+                  maxLines: 2,
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  "\$ " + "${product['price']}",
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w800,
-                    fontSize: getProportionateScreenWidth(20),
+                    fontSize: getProportionateScreenWidth(15),
                   ),
                 ),
                 SizedBox(
@@ -121,11 +133,11 @@ class CaterProductCard extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.black,
                     // fontWeight: FontWeight.w500,
-                    fontSize: getProportionateScreenWidth(17.5),
+                    fontSize: getProportionateScreenWidth(15),
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 // FittedBox(
                 //   child: Text(

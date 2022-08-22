@@ -32,8 +32,10 @@ class PlasticProduct extends StatelessWidget {
         padding:
             const EdgeInsets.only(top: 20.0, left: 20, right: 20, bottom: 8),
         child: StreamBuilder<QuerySnapshot>(
-            stream:
-                FirebaseFirestore.instance.collection("products").snapshots(),
+            stream: FirebaseFirestore.instance
+                .collection("products")
+                .where("category", isEqualTo: "plastic")
+                .snapshots(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 return Text("No Data");

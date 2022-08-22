@@ -79,7 +79,7 @@ class CheckOutCard extends StatelessWidget {
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
                       TextSpan(
-                          text: "Rs. 145.00",
+                          text: "\$ 145",
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black,

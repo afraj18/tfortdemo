@@ -50,7 +50,7 @@ class CartItemCard extends StatelessWidget {
                 ),
                 Text.rich(
                   TextSpan(
-                      text: "Rs. ${cart.product.price}",
+                      text: "\$ ${cart.product.price}",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         color: kPrimaryColor,

@@ -36,22 +36,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ? Loading()
         : Scaffold(
             extendBodyBehindAppBar: true,
-            appBar: AppBar(
-              iconTheme: IconThemeData(
-                color: hexStringToColor("#5b8c2a"),
-                //change your color here
-              ),
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              // title: Text(
-              //   "SIGN IN",
-              //   style: TextStyle(
-              //     fontSize: 16,
-              //     fontWeight: FontWeight.bold,
-              //     color: hexStringToColor("#5b8c2a"),
-              //   ),
-              // ),
-            ),
+            // appBar: AppBar(
+            //   iconTheme: IconThemeData(
+            //     color: hexStringToColor("#5b8c2a"),
+            //     //change your color here
+            //   ),
+            //   backgroundColor: Colors.transparent,
+            //   elevation: 0,
+            //   // title: Text(
+            //   //   "SIGN IN",
+            //   //   style: TextStyle(
+            //   //     fontSize: 16,
+            //   //     fontWeight: FontWeight.bold,
+            //   //     color: hexStringToColor("#5b8c2a"),
+            //   //   ),
+            //   // ),
+            // ),
             body: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,

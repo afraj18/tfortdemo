@@ -24,13 +24,40 @@ class AboutUs extends StatelessWidget {
               child: Center(
                 child: Image.asset(
                   "assets/images/t4tLogo.png",
-                  height: 250,
-                  width: 250,
+                  height: 100,
+                  width: 120,
                 ),
               ),
             ),
+            SizedBox(
+              height: 15,
+            ),
             Column(
               children: [
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          "Trash for Trade is a Plastic Upcycling Social Enterprise." +
+                              "It is a social innovation idea developed from an open-source community, " +
+                              "‘Precious Plastic’ with the support of DreamSpace Academy. We have taken upon " +
+                              "this initiative using the upcycling machinery our team has built.",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.5,
+                            // fontWeight: FontWeight.bold
+                            letterSpacing: 2,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Row(
@@ -122,33 +149,33 @@ class AboutUs extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 30,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(
-                      Icons.facebook_outlined,
-                      color: hexStringToColor("#5b8c2a"),
-                      size: 30,
-                    ),
-                    Icon(
-                      Icons.feedback_outlined,
-                      color: hexStringToColor("#5b8c2a"),
-                      size: 30,
-                    ),
-                    Icon(
-                      Icons.web_rounded,
-                      color: hexStringToColor("#5b8c2a"),
-                      size: 30,
-                    ),
-                  ],
-                ),
-              ),
-            )
+            // Container(
+            //   child: Padding(
+            //     padding: const EdgeInsets.symmetric(
+            //       horizontal: 30,
+            //     ),
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //       children: [
+            //         Icon(
+            //           Icons.facebook_outlined,
+            //           color: hexStringToColor("#5b8c2a"),
+            //           size: 30,
+            //         ),
+            //         Icon(
+            //           Icons.feedback_outlined,
+            //           color: hexStringToColor("#5b8c2a"),
+            //           size: 30,
+            //         ),
+            //         Icon(
+            //           Icons.web_rounded,
+            //           color: hexStringToColor("#5b8c2a"),
+            //           size: 30,
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // )
           ],
         ),
       ),

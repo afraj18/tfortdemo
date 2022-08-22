@@ -63,7 +63,7 @@ class DetailsScreen extends StatelessWidget {
                       ),
                       const SizedBox(width: defaultPadding),
                       Text(
-                        "Rs. " + product['price'].toString(),
+                        "\$ " + product['price'].toString(),
                         style: Theme.of(context).textTheme.headline6,
                       ),
                     ],

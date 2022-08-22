@@ -50,17 +50,18 @@ class WishListItems extends StatelessWidget {
                 ),
                 Text.rich(
                   TextSpan(
-                      text: "Rs. ${cart.product.price}",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: kPrimaryColor,
-                      ),
-                      children: [
-                        TextSpan(
-                          text: " x${cart.numOfItem}",
-                          style: TextStyle(color: kTextColor),
-                        )
-                      ]),
+                    text: "\$ ${cart.product.price}",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: kPrimaryColor,
+                    ),
+                    // children: [
+                    //   TextSpan(
+                    //     text: " x${cart.numOfItem}",
+                    //     style: TextStyle(color: kTextColor),
+                    //   )
+                    // ],
+                  ),
                 )
               ],
             ),

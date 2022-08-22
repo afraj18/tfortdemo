@@ -62,7 +62,7 @@ class ProductCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
-                    "Rs.${product['price']}",
+                    "\$ ${product['price']}",
                     style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.w800,
