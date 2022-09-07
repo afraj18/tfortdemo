@@ -20,13 +20,11 @@ class AboutUs extends StatelessWidget {
         padding: EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Container(
-              child: Center(
-                child: Image.asset(
-                  "assets/images/t4tLogo.png",
-                  height: 100,
-                  width: 120,
-                ),
+            Center(
+              child: Image.asset(
+                "assets/images/t4tLogo.png",
+                height: 100,
+                width: 120,
               ),
             ),
             SizedBox(
@@ -40,10 +38,10 @@ class AboutUs extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Text(
-                          "Trash for Trade is a Plastic Upcycling Social Enterprise." +
-                              "It is a social innovation idea developed from an open-source community, " +
-                              "‘Precious Plastic’ with the support of DreamSpace Academy. We have taken upon " +
-                              "this initiative using the upcycling machinery our team has built.",
+                          "Trash for Trade is a Plastic Upcycling Social Enterprise."
+                          "It is a social innovation idea developed from an open-source community, "
+                          "‘Precious Plastic’ with the support of DreamSpace Academy. We have taken upon "
+                          "this initiative using the upcycling machinery our team has built.",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 15.5,

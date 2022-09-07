@@ -4,9 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tfortdemo/Screens/details/details_screen.dart';
-import 'package:tfortdemo/models/Product_Model.dart';
 import 'package:tfortdemo/size_confiq.dart';
-import 'package:tfortdemo/utills/colors_utills.dart';
 import 'package:tfortdemo/utills/constants.dart';
 
 class ProductCard extends StatelessWidget {

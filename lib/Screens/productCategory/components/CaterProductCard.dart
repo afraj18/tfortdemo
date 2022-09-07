@@ -1,22 +1,23 @@
-// ignore_for_file: prefer_const_constructors, file_names
+// ignore_for_file: prefer_const_constructors, file_names, prefer_const_constructors_in_immutables
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tfortdemo/Screens/details/details_screen.dart';
-import 'package:tfortdemo/models/Product_Model.dart';
 import 'package:tfortdemo/size_confiq.dart';
-import 'package:tfortdemo/utills/colors_utills.dart';
 import 'package:tfortdemo/utills/constants.dart';
 
 class CaterProductCard extends StatelessWidget {
-  const CaterProductCard({
+  CaterProductCard({
     Key? key,
     this.width = 140,
     this.aspectRatio = 1.02,
     required this.product,
   }) : super(key: key);
 
+  // final ProductController productController = Get.find();
+  // final cartController = Get.put(CartController());
+  // final int index;
   final double width, aspectRatio;
   final DocumentSnapshot product;
 
@@ -46,6 +47,7 @@ class CaterProductCard extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15)),
                       child: Image.asset(
                         product['image'][0],
+                        // productController.products[index].images[0],
                       ),
                     ),
                   ),
@@ -107,6 +109,7 @@ class CaterProductCard extends StatelessWidget {
               children: [
                 Text(
                   product['title'],
+                  // productController.products[index].title,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w400,
@@ -118,7 +121,7 @@ class CaterProductCard extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  "\$ " + "${product['price']}",
+                  "\$ " "${product['price']}",
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w800,
@@ -163,16 +166,20 @@ class CaterProductCard extends StatelessWidget {
                     width: getProportionateScreenWidth(15),
                     height: getProportionateScreenWidth(15),
                     decoration: BoxDecoration(
-                      color: product['isFavourite']
-                          ? Color(0xFF5b8c2a).withOpacity(.15)
-                          : kSecondaryColor.withOpacity(.1),
+                      color:
+                          // productController.products[index].isFavourite
+                          product['isFavourite']
+                              ? Color(0xFF5b8c2a).withOpacity(.15)
+                              : kSecondaryColor.withOpacity(.1),
                       shape: BoxShape.circle,
                     ),
                     child: SvgPicture.asset(
                       "assets/icons/Heart Icon_2.svg",
-                      color: product['isFavourite']
-                          ? Color(0xFF5b8c2a).withOpacity(.7)
-                          : Color(0xFFDBDEE4),
+                      color:
+                          // productController.products[index].isPopular
+                          product['isFavourite']
+                              ? Color(0xFF5b8c2a).withOpacity(.7)
+                              : Color(0xFFDBDEE4),
                     ),
                   ),
                 ),

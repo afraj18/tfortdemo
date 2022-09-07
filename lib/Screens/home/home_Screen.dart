@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:tfortdemo/Screens/home/components/body.dart';
+// import 'package:tfortdemo/Screens/home/components/productWidget.dart';
 
 class Home_Screen extends StatelessWidget {
   const Home_Screen({Key? key}) : super(key: key);
@@ -9,7 +10,9 @@ class Home_Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Body(),
+      body:
+          //  ProductsWidget(),
+          Body(),
     );
   }
 }

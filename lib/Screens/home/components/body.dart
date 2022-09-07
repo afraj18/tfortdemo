@@ -2,7 +2,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import 'package:tfortdemo/Screens/home/components/DiscountBanner.dart';
 import 'package:tfortdemo/Screens/home/components/HomeHeader.dart';
@@ -13,17 +12,15 @@ import 'package:tfortdemo/Screens/home/components/specialOfferCard.dart';
 import 'package:tfortdemo/Screens/productCategory/plasticProductScreen.dart';
 import 'package:tfortdemo/Screens/productCategory/woodProductScreen.dart';
 
-import 'package:tfortdemo/models/Product_Model.dart';
 import 'package:tfortdemo/size_confiq.dart';
-import 'package:tfortdemo/utills/constants.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Stream collectionRef =
-        FirebaseFirestore.instance.collection('products').snapshots();
+    // Stream collectionRef =
+    //     FirebaseFirestore.instance.collection('products').snapshots();
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(

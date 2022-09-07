@@ -11,13 +11,14 @@ class DatabaseService {
       FirebaseFirestore.instance.collection('t4tECom');
 
   Future UpdateUserData(String name, String email, String userType,
-      String address, String phoneNo) async {
+      String address, String phoneNo, List cart) async {
     return await eComeCollection.doc(uid).set({
       'name': name,
       'email': email,
       'userType': userType,
       'address': address,
       'phoneNo': phoneNo,
+      'cart': cart,
     }).onError((error, stackTrace) => print(error.toString()));
   }
 
@@ -30,6 +31,7 @@ class DatabaseService {
         name: (doc.data() as dynamic)['name'] ?? '',
         phoneNo: (doc.data() as dynamic)['phoneNo'] ?? '',
         userType: (doc.data() as dynamic)['userType'] ?? '',
+        cart: (doc.data() as dynamic)['cart'] ?? '',
       );
     }).toList();
   }

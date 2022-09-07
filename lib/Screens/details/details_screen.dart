@@ -1,16 +1,19 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-// import 'package:tfortdemo/models/Product.dart';
-import 'package:tfortdemo/models/Product_Model.dart';
+import 'package:get/get.dart';
+import 'package:tfortdemo/controller/cart_controller.dart';
 import 'package:tfortdemo/utills/colors_utills.dart';
 
 import 'components/color_dot.dart';
 
 class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({Key? key, required this.product}) : super(key: key);
+  DetailsScreen({Key? key, required this.product}) : super(key: key);
 
   final DocumentSnapshot product;
+  final _cartController = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +104,17 @@ class DetailsScreen extends StatelessWidget {
                       width: 200,
                       height: 48,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          // _cartController.addProduct();
+                          _cartController.addProduct(product);
+                          // Get.snackbar(
+                          //   "Added",
+                          //   "Item has been added.",
+                          //   snackPosition: SnackPosition.TOP,
+                          //   duration: Duration(seconds: 2),
+                          // );
+                          // print(product.id);
+                        },
                         style: ElevatedButton.styleFrom(
                             primary: hexStringToColor("#5b8c2a"),
                             shape: const StadiumBorder()),

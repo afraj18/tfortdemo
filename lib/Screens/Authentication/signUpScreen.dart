@@ -111,13 +111,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               setState(() {
                                 loading = true;
                               });
-                              dynamic result =
-                                  _auth.registerWithEmailAndPassword(
+                              dynamic result = _auth
+                                  .registerWithEmailAndPassword(
                                       _emailNameController.text,
                                       _passwordNameController.text,
                                       _userNameController.text,
                                       _addressController.text,
-                                      _phoneNoController.text);
+                                      _phoneNoController.text, []);
                               if (result == null) {
                                 setState(() {
                                   error = "Please set a valid email";

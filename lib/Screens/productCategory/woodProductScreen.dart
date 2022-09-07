@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, prefer_const_constructors, unused_local_variable
+// ignore_for_file: file_names, prefer_const_constructors, unused_local_variable, prefer_const_constructors_in_immutables
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +7,16 @@ import 'package:tfortdemo/size_confiq.dart';
 import 'components/CaterProductCard.dart';
 
 class WoodProducts extends StatelessWidget {
-  const WoodProducts({Key? key}) : super(key: key);
+  // final ProductController productController = Get.put(ProductController());
+  WoodProducts({
+    Key? key,
+    // required this.index,
+  }) : super(key: key);
+
   final String title = "Wood Products";
+
+  // final cartController = Get.find();
+  // final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +38,7 @@ class WoodProducts extends StatelessWidget {
             const EdgeInsets.only(top: 20.0, left: 20, right: 20, bottom: 8),
         child: StreamBuilder<QuerySnapshot>(
             stream: query,
+            // productController.products[],
             // FirebaseFirestore.instance.collection("products").snapshots(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
@@ -43,6 +52,7 @@ class WoodProducts extends StatelessWidget {
                       ...List.generate(
                         // demoProduct.length,
                         snapshot.data!.docs.length,
+                        // productController.products.length,
                         // 2,
                         (index) {
                           DocumentSnapshot productSnap =

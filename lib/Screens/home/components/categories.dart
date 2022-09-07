@@ -4,9 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tfortdemo/Screens/AboutUs/aboutUs.dart';
 import 'package:tfortdemo/Screens/cart/cartScreen.dart';
-import 'package:tfortdemo/Screens/productCategory/woodProductScreen.dart';
-import 'package:tfortdemo/Screens/wishlist/wishlistScreen.dart';
-import 'package:tfortdemo/models/cart.dart';
+
+// import 'package:tfortdemo/Screens/wishlist/wishlistScreen.dart';
 import 'package:tfortdemo/size_confiq.dart';
 
 class CategoriesHomeScreen extends StatelessWidget {
@@ -20,7 +19,7 @@ class CategoriesHomeScreen extends StatelessWidget {
       {
         "icon": "assets/icons/Heart Icon_2.svg",
         "text": "WishList",
-        "press": WishList()
+        // "press": WishList()
       },
       {
         "icon": "assets/icons/Cart_2.svg",
@@ -74,6 +73,7 @@ class CategoryCard extends StatelessWidget {
     required this.press,
   }) : super(key: key);
 
+  // ignore: prefer_typing_uninitialized_variables
   final icon, text;
   final GestureTapCallback press;
 

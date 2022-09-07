@@ -33,13 +33,8 @@ class AuthService {
   }
 
   //Register in with Email pass
-  Future registerWithEmailAndPassword(
-    String email,
-    String password,
-    String name,
-    String address,
-    String phoneNo,
-  ) async {
+  Future registerWithEmailAndPassword(String email, String password,
+      String name, String address, String phoneNo, List cart) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
@@ -52,6 +47,7 @@ class AuthService {
         "Investor",
         address,
         phoneNo,
+        cart,
       );
       return _userFromFirebaseUser(user);
     } catch (e) {
@@ -59,6 +55,15 @@ class AuthService {
       return null;
     }
   }
+
+  // _addUserToFirestore(String userId) {
+  //   firebaseFirestore.collection('users').doc(userId).set({
+  //     "name": name.text.trim(),
+  //     "id": userId,
+  //     "email": email.text.trim(),
+  //     "cart": []
+  //   });
+  // }
 
   //Sign with email and password
   Future signInWithEmailAndPassword(String email, String password) async {

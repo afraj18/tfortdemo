@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:tfortdemo/Screens/signInScreen.dart';
-import 'package:tfortdemo/Screens/signUpScreen.dart';
+import 'package:tfortdemo/Screens/Authentication/signInScreen.dart';
+import 'package:tfortdemo/Screens/Authentication/signUpScreen.dart';
 
 class Authenticate extends StatefulWidget {
   const Authenticate({Key? key}) : super(key: key);
