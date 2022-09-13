@@ -32,8 +32,8 @@ class SingleProductWidget extends StatelessWidget {
                   topLeft: Radius.circular(15),
                   topRight: Radius.circular(15),
                 ),
-                child: Image.asset(
-                  product.images![0],
+                child: Image.network(
+                  product.img.toString(),
                   width: double.infinity,
                   height: 180,
                 )),

@@ -11,7 +11,7 @@ class AboutUs extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "About Us",
+          "About Upcyclers Lab",
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
@@ -28,7 +28,7 @@ class AboutUs extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 15,
+              height: 10,
             ),
             Column(
               children: [
@@ -44,9 +44,9 @@ class AboutUs extends StatelessWidget {
                           "this initiative using the upcycling machinery our team has built.",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 15.5,
+                            fontSize: 13,
                             // fontWeight: FontWeight.bold
-                            letterSpacing: 2,
+                            // letterSpacing: ,
                           ),
                         ),
                       ),
@@ -54,7 +54,7 @@ class AboutUs extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
@@ -63,27 +63,27 @@ class AboutUs extends StatelessWidget {
                       Icon(
                         Icons.business,
                         color: hexStringToColor("#5b8c2a"),
-                        size: 30,
+                        size: 20,
                       ),
                       SizedBox(width: 15),
                       Text(
                         "Trash For Trade Upcylers Lab",
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 17.5,
+                            fontSize: 15.5,
                             fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(15.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Row(
                     children: [
                       Icon(
                         Icons.home_outlined,
                         color: hexStringToColor("#5b8c2a"),
-                        size: 30,
+                        size: 20,
                       ),
                       SizedBox(width: 15),
                       Expanded(
@@ -91,7 +91,7 @@ class AboutUs extends StatelessWidget {
                           "372/2, Government quarters road, Kallady, Batticaloa, 30000, Srilanka.",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 17.5,
+                            fontSize: 15.5,
                           ),
                         ),
                       ),
@@ -105,7 +105,7 @@ class AboutUs extends StatelessWidget {
                       Icon(
                         Icons.email_outlined,
                         color: hexStringToColor("#5b8c2a"),
-                        size: 30,
+                        size: 20,
                       ),
                       SizedBox(width: 15),
                       Expanded(
@@ -113,7 +113,7 @@ class AboutUs extends StatelessWidget {
                           "trashfortrade@gmail.com",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 17.5,
+                            fontSize: 15.5,
                           ),
                         ),
                       ),
@@ -127,7 +127,7 @@ class AboutUs extends StatelessWidget {
                       Icon(
                         Icons.phone_outlined,
                         color: hexStringToColor("#5b8c2a"),
-                        size: 30,
+                        size: 20,
                       ),
                       SizedBox(width: 15),
                       Expanded(
@@ -135,7 +135,7 @@ class AboutUs extends StatelessWidget {
                           "+94766646404 \n+94652226302",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 17.5,
+                            fontSize: 15.5,
                           ),
                         ),
                       ),
@@ -145,7 +145,7 @@ class AboutUs extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             ),
             // Container(
             //   child: Padding(

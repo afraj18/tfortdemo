@@ -43,6 +43,7 @@ dependencies:
   flutter_svg: ^1.0.2
   get: ^4.6.1
   logger: ^1.1.0
+  flutter_stripe: ^2.5.0
 
 dependency_overrides:
   firebase_messaging_platform_interface: 3.1.6

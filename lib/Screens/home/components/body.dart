@@ -2,6 +2,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:tfortdemo/Screens/AllProducts/allProducts.dart';
 
 import 'package:tfortdemo/Screens/home/components/DiscountBanner.dart';
 import 'package:tfortdemo/Screens/home/components/HomeHeader.dart';
@@ -91,9 +92,15 @@ class Body extends StatelessWidget {
             Column(
               children: [
                 SectionTitle(
-                  text: "Products you make like..",
-                  press: () {},
-                ),
+                    text: "Products you make like..",
+                    press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => allProducts(),
+                        ),
+                      );
+                    }),
                 SizedBox(
                   height: 15,
                 ),

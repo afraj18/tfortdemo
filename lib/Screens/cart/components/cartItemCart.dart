@@ -5,25 +5,28 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tfortdemo/controller/cart_controller.dart';
 import 'package:tfortdemo/size_confiq.dart';
+import 'package:tfortdemo/utills/colors_utills.dart';
 import 'package:tfortdemo/utills/constants.dart';
 
 class CartItemCard extends StatelessWidget {
-  final CartController controller;
-  final QueryDocumentSnapshot product;
+  // final CartController controller;
+
+  final QueryDocumentSnapshot cart;
   int quantity;
   final int index;
 
   CartItemCard(
       {Key? key,
       // required this.cart,
-      required this.controller,
-      required this.product,
+      // required this.controller,
+      required this.cart,
       required this.quantity,
       required this.index})
       : super(key: key);
   // final Cart cart;
   @override
   Widget build(BuildContext context) {
+    CartController controller;
     var kPrimaryColor;
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -39,11 +42,14 @@ class CartItemCard extends StatelessWidget {
                   color: Color(0xFFF5F6F9),
                   borderRadius: BorderRadius.circular(15),
                 ),
-                child: Image.asset(
+                child: Image.network(
                     // cart.product.images[0],
-                    product['image'][0]),
+                    cart['img']),
               ),
             ),
+          ),
+          SizedBox(
+            width: 20,
           ),
           SizedBox(
             width: getProportionateScreenWidth(200),
@@ -52,47 +58,70 @@ class CartItemCard extends StatelessWidget {
               children: [
                 Text(
                   // cart.product.title,
-                  product['title'],
+                  "${cart['title']}",
                   style: TextStyle(
                     fontSize: 16,
+                    fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
                   maxLines: 2,
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 5,
                 ),
                 Text.rich(
                   TextSpan(
-                      text: "\$ ${product['price']}",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: kPrimaryColor,
-                      ),
-                      children: [
-                        TextSpan(
-                          // text: " x${cart.numOfItem}",
-                          style: TextStyle(color: kTextColor),
-                        )
-                      ]),
+                    text: "\$${cart['price']}",
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                      color: hexStringToColor("#5b8c2a"),
+                    ),
+                  ),
                 ),
                 Row(
                   children: [
                     IconButton(
                       onPressed: () {
-                        // controller.removeProduct(product);
-                      },
-                      icon: Icon(Icons.remove_circle),
-                    ),
-                    Text("${quantity}"),
-                    IconButton(
-                      onPressed: () {
-                        quantity = quantity + 1;
                         // controller.addProduct(product);
                       },
-                      icon: Icon(Icons.add_circle),
+                      icon: Icon(
+                        Icons.remove_circle_outline_rounded,
+                        size: 20,
+                      ),
+                    ),
+                    Text.rich(
+                      TextSpan(
+                        text: " ${cart['qty']}",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w900,
+                          color: kPrimaryColor,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        // controller.addProduct(product);
+                      },
+                      icon: Icon(
+                        Icons.add_circle_outline_rounded,
+                        size: 20,
+                      ),
                     ),
                   ],
+                ),
+                IconButton(
+                  onPressed: () {
+                    // print('Item Deleted');
+                    // controller.removeProduct(product);
+                    // CartController.deleteCartProduct(cart);
+                    CartController().deleteCartProduct(cart);
+                  },
+                  icon: Icon(
+                    Icons.delete,
+                    size: 20,
+                  ),
                 )
               ],
             ),

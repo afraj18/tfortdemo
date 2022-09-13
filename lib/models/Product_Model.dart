@@ -6,30 +6,26 @@ import 'package:flutter/material.dart';
 class ProductModel {
   final int? id;
   final String? title, description;
-  final List<dynamic>? images;
-  final List<dynamic>? colors;
-  final num? rating, price;
-  final bool? isFavourite, isPopular;
+  final String? img;
+  // final List<dynamic>? colors;
+  final String? price;
+  // final bool? isFavourite, isPopular;
 
   ProductModel({
     this.id,
     this.title,
-    this.colors,
     this.description,
-    this.images,
-    this.rating = 0.0,
+    this.img,
     this.price,
-    this.isFavourite = false,
-    this.isPopular = false,
   });
 
   static ProductModel fromMap(Map<String, dynamic> snap) {
     ProductModel product = ProductModel(
         id: snap['id'],
         title: snap['title'],
-        colors: snap['colors'],
+        // colors: snap['colors'],
         description: snap['description'],
-        images: snap['image'],
+        img: snap['img'],
         price: snap['price']);
     return product;
   }

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, file_names, prefer_const_constructors_in_immutables
+// ignore_for_file: prefer_const_constructors, file_names, prefer_const_constructors_in_immutables, dead_code
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +7,8 @@ import 'package:tfortdemo/Screens/details/details_screen.dart';
 import 'package:tfortdemo/size_confiq.dart';
 import 'package:tfortdemo/utills/constants.dart';
 
-class CaterProductCard extends StatelessWidget {
-  CaterProductCard({
+class AllProductCard extends StatelessWidget {
+  AllProductCard({
     Key? key,
     this.width = 140,
     this.aspectRatio = 1.02,

@@ -49,16 +49,5 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
       ),
     );
-    // ChangeNotifierProvider(
-    //   create: (context) => ProductProvider(),
-    //   child: MaterialApp(
-    //     title: 'TrashForTrade',
-    //     theme: ThemeData(
-    //       primarySwatch: Colors.blue,
-    //     ),
-    //     debugShowCheckedModeBanner: false,
-    //     home: const SignInScreen(),
-    //   ),
-    // );
   }
 }

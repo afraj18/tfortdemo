@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tfortdemo/Screens/AboutUs/aboutUs.dart';
 import 'package:tfortdemo/Screens/cart/cartScreen.dart';
+import 'package:tfortdemo/Screens/wishlist/wishlistScreen.dart';
 
 // import 'package:tfortdemo/Screens/wishlist/wishlistScreen.dart';
 import 'package:tfortdemo/size_confiq.dart';
@@ -19,7 +20,7 @@ class CategoriesHomeScreen extends StatelessWidget {
       {
         "icon": "assets/icons/Heart Icon_2.svg",
         "text": "WishList",
-        // "press": WishList()
+        "press": WishListScreen()
       },
       {
         "icon": "assets/icons/Cart_2.svg",

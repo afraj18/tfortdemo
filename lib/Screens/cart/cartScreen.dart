@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers, unused_import, file_names
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tfortdemo/Screens/cart/components/body.dart';
 import 'package:tfortdemo/Screens/cart/components/checkOutCard.dart';
 import 'package:tfortdemo/models/cart.dart';
+import 'package:tfortdemo/services/firestoreDB.dart';
 import 'package:tfortdemo/utills/colors_utills.dart';
 
 class CartScreen extends StatelessWidget {
@@ -26,13 +28,14 @@ class CartScreen extends StatelessWidget {
             "Your Cart",
             style: TextStyle(color: Colors.black),
           ),
-          Text(
-            // "${demoCarts.length} Items",
-            "2 Items",
-            style: Theme.of(context).textTheme.caption,
-          )
+          // Text(
+          //   // "${demoCarts.length} Items",
+          //   "",
+          //   style: Theme.of(context).textTheme.caption,
+          // )
         ],
       ),
+      centerTitle: true,
     );
   }
 }

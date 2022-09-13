@@ -1,19 +1,18 @@
-// ignore_for_file: file_names, prefer_const_constructors, unused_local_variable, prefer_const_constructors_in_immutables
+// ignore_for_file: file_names, prefer_const_constructors, unused_local_variable, prefer_const_constructors_in_immutables, camel_case_types
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:tfortdemo/Screens/AllProducts/components/productCard_all.dart';
 import 'package:tfortdemo/size_confiq.dart';
 
-import 'components/CaterProductCard.dart';
-
-class PlasticProduct extends StatelessWidget {
+class allProducts extends StatelessWidget {
   // final ProductController productController = Get.put(ProductController());
-  PlasticProduct({
+  allProducts({
     Key? key,
     // required this.index,
   }) : super(key: key);
 
-  final String title = "Upcycled Plastic Products";
+  final String title = "Our Products";
 
   // final cartController = Get.find();
   // final int index;
@@ -21,7 +20,7 @@ class PlasticProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final catRef = FirebaseFirestore.instance.collection("products");
-    final query = catRef.where("category", isEqualTo: "plastic").snapshots();
+    final query = catRef.snapshots();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -60,7 +59,7 @@ class PlasticProduct extends StatelessWidget {
                           return Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              CaterProductCard(product: productSnap),
+                              AllProductCard(product: productSnap),
                               SizedBox(
                                 height: 150,
                               ),

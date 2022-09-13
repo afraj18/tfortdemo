@@ -13,7 +13,7 @@ class WoodProducts extends StatelessWidget {
     // required this.index,
   }) : super(key: key);
 
-  final String title = "Wood Products";
+  final String title = "Upcylced Wood Products";
 
   // final cartController = Get.find();
   // final int index;
@@ -62,7 +62,7 @@ class WoodProducts extends StatelessWidget {
                             children: [
                               CaterProductCard(product: productSnap),
                               SizedBox(
-                                height: 200,
+                                height: 100,
                               )
                             ],
                           );

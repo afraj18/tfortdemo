@@ -11,8 +11,8 @@ import 'package:tfortdemo/size_confiq.dart';
 import 'package:tfortdemo/utills/colors_utills.dart';
 import 'package:tfortdemo/utills/constants.dart';
 
-class CheckOutCard extends StatelessWidget {
-  const CheckOutCard({
+class OrderDetails extends StatelessWidget {
+  const OrderDetails({
     Key? key,
   }) : super(key: key);
 
@@ -25,7 +25,7 @@ class CheckOutCard extends StatelessWidget {
         vertical: getProportionateScreenWidth(15),
         horizontal: getProportionateScreenWidth(30),
       ),
-      height: 150,
+      height: 120,
       // color: Colors.amber,
 
       decoration: BoxDecoration(
@@ -48,21 +48,21 @@ class CheckOutCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                Container(
-                  padding: EdgeInsets.all(10),
-                  height: getProportionateScreenHeight(50),
-                  width: getProportionateScreenWidth(40),
-                  decoration: BoxDecoration(
-                    color: Color(0xFFF5F6F9),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: SvgPicture.asset(
-                    "assets/icons/receipt.svg",
-                    color: hexStringToColor("#5b8c2a"),
-                  ),
-                ),
-                Spacer(),
-                // Text("Add Voucher Code"),
+                // Container(
+                //   padding: EdgeInsets.all(10),
+                //   height: getProportionateScreenHeight(50),
+                //   width: getProportionateScreenWidth(40),
+                //   decoration: BoxDecoration(
+                //     color: Color(0xFFF5F6F9),
+                //     borderRadius: BorderRadius.circular(10),
+                //   ),
+                //   child: SvgPicture.asset(
+                //     "assets/icons/receipt.svg",
+                //     color: hexStringToColor("#5b8c2a"),
+                //   ),
+                // ),
+                // Spacer(),
+                // Text("PayHere"),
                 // const SizedBox(
                 //   width: 10,
                 // ),
@@ -117,14 +117,14 @@ class CheckOutCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => CheckOutScreen()));
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => ));
                     },
                     color: hexStringToColor("#5b8c2a"),
                     child: Text(
-                      "Check Out",
+                      "Pay Here",
                       style: TextStyle(
                         fontSize: getProportionateScreenWidth(15),
                         color: Colors.white,

@@ -39,8 +39,11 @@ class ProductCard extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: kSecondaryColor.withOpacity(.1),
                       borderRadius: BorderRadius.circular(15)),
-                  child: Image.asset(
-                    product['image'][0],
+                  child: Image.network(
+                    product['img'].toString(),
+                    width: 100,
+                    height: 100,
+                    // "https://firebasestorage.googleapis.com/v0/b/t4tdemo-app.appspot.com/o/ProductImages%2Fproduct0.jpg?alt=media&token=111c7ca6-2e5a-4d12-8a36-8a586357e5ed"
                   ),
                 ),
               ),
@@ -76,14 +79,14 @@ class ProductCard extends StatelessWidget {
                       width: getProportionateScreenWidth(15),
                       height: getProportionateScreenWidth(15),
                       decoration: BoxDecoration(
-                        color: product['isFavourite']
+                        color: true
                             ? Color(0xFF5b8c2a).withOpacity(.15)
                             : kSecondaryColor.withOpacity(.1),
                         shape: BoxShape.circle,
                       ),
                       child: SvgPicture.asset(
                         "assets/icons/Heart Icon_2.svg",
-                        color: product['isFavourite']
+                        color: true
                             ? Color(0xFF5b8c2a).withOpacity(.7)
                             : Color(0xFFDBDEE4),
                       ),

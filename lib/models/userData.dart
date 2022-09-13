@@ -1,6 +1,5 @@
-// ignore_for_file: file_names, non_constant_identifier_names
+// ignore_for_file: file_names, non_constant_identifier_names, unused_import
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:tfortdemo/Screens/home/userDataList.dart';
 import 'package:tfortdemo/models/cart.dart';
 

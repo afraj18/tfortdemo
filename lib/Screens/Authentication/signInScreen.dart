@@ -61,8 +61,6 @@ class _SignInScreenState extends State<SignInScreen> {
                         true,
                         () async {
                           if (_formKey.currentState!.validate()) {
-                            // print(_emailController.text);
-                            // print(_passwordController.text);
                             setState(() {
                               loading = true;
                             });
@@ -77,27 +75,6 @@ class _SignInScreenState extends State<SignInScreen> {
                               });
                             }
                           }
-                          // print(_emailController);
-                          // print(_passwordController);
-                          // if (_emailController.text.isNotEmpty &&
-                          //     _passwordController.text.isNotEmpty) {
-                          //   await FirebaseAuth.instance
-                          //       .signInWithEmailAndPassword(
-                          //           email: _emailController.text,
-                          //           password: _passwordController.text)
-                          //       .then(
-                          //         (value) => Navigator.push(
-                          //           context,
-                          //           MaterialPageRoute(
-                          //               builder: (context) => homeScreen()),
-                          //         ),
-                          //       )
-                          //       .onError((error, stackTrace) => {
-                          //             print("Error" + error.toString()),
-                          //           });
-                          // } else {
-                          //   print("Fill All fields");
-                          // }
                         },
                       ),
                       SizedBox(
