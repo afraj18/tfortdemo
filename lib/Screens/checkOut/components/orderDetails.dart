@@ -4,17 +4,27 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'package:tfortdemo/Screens/cart/cartScreen.dart';
 import 'package:tfortdemo/Screens/checkOut/checkOutScreen.dart';
+import 'package:tfortdemo/Screens/checkOut/components/cardForm.dart';
 import 'package:tfortdemo/constants/firebase.dart';
 import 'package:tfortdemo/controller/cart_controller.dart';
+
 import 'package:tfortdemo/size_confiq.dart';
 import 'package:tfortdemo/utills/colors_utills.dart';
 import 'package:tfortdemo/utills/constants.dart';
 
-class OrderDetails extends StatelessWidget {
-  const OrderDetails({
-    Key? key,
-  }) : super(key: key);
+class OrderDetails extends StatefulWidget {
+  @override
+  State<OrderDetails> createState() => _OrderDetailsState();
+}
+
+class _OrderDetailsState extends State<OrderDetails> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +35,7 @@ class OrderDetails extends StatelessWidget {
         vertical: getProportionateScreenWidth(15),
         horizontal: getProportionateScreenWidth(30),
       ),
-      height: 120,
+      height: 160,
       // color: Colors.amber,
 
       decoration: BoxDecoration(
@@ -61,20 +71,33 @@ class OrderDetails extends StatelessWidget {
                 //     color: hexStringToColor("#5b8c2a"),
                 //   ),
                 // ),
-                // Spacer(),
-                // Text("PayHere"),
-                // const SizedBox(
-                //   width: 10,
-                // ),
-                // Icon(
-                //   Icons.arrow_forward_ios,
-                //   size: 12,
-                //   color: kTextColor,
-                // ),
+                Spacer(),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => cardForm()));
+                  },
+                  child: Text(
+                    "PayHere",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Icon(
+                  Icons.arrow_upward_rounded,
+                  size: 20,
+                  color: kTextColor,
+                ),
               ],
             ),
             SizedBox(
-              height: getProportionateScreenHeight(20),
+              height: getProportionateScreenHeight(5),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -91,15 +114,19 @@ class OrderDetails extends StatelessWidget {
                       if (snapshot.hasData) {
                         return Text.rich(
                           TextSpan(
-                            text: "Total\n",
+                            text: "Sub Total\n",
+                            style: TextStyle(
+                              fontSize: 17,
+                            ),
                             // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               TextSpan(
                                   text:
                                       "\$ ${snapshot.data!.data()!['subTotal'].toString()}",
                                   style: TextStyle(
-                                    fontSize: 16,
+                                    fontSize: 25,
                                     color: Colors.black,
+                                    fontWeight: FontWeight.bold,
                                   )),
                             ],
                           ),
@@ -124,7 +151,7 @@ class OrderDetails extends StatelessWidget {
                     },
                     color: hexStringToColor("#5b8c2a"),
                     child: Text(
-                      "Pay Here",
+                      "Pay and Order",
                       style: TextStyle(
                         fontSize: getProportionateScreenWidth(15),
                         color: Colors.white,

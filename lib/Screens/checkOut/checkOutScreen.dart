@@ -8,6 +8,8 @@ import 'package:tfortdemo/Screens/checkOut/components/orderDetails.dart';
 import 'package:tfortdemo/constants/firebase.dart';
 import 'package:tfortdemo/reusable_widgets/reusable_widget.dart';
 
+import 'components/productCard_CO.dart';
+
 class CheckOutScreen extends StatelessWidget {
   CheckOutScreen({this.id});
 
@@ -45,9 +47,9 @@ class CheckOutScreen extends StatelessWidget {
                         .doc(user!.uid)
                         .get(),
                     builder: (context, snapshot) {
-                      final data = snapshot.data!;
+                      final data = snapshot.data;
                       return reusableTextField(
-                        data['name'].toString(),
+                        data?['name'],
                         Icons.person,
                         false,
                         _nameController,
@@ -65,7 +67,7 @@ class CheckOutScreen extends StatelessWidget {
                     builder: (context, snapshot) {
                       final data = snapshot.data!;
                       return reusableTextField(
-                        data['address'].toString(),
+                        data['address'],
                         Icons.person,
                         false,
                         _addressController,
@@ -81,9 +83,9 @@ class CheckOutScreen extends StatelessWidget {
                         .doc(user.uid)
                         .get(),
                     builder: (context, snapshot) {
-                      final data = snapshot.data!;
+                      final data = snapshot.data;
                       return reusableTextField(
-                        data['phoneNo'].toString(),
+                        data!['phoneNo'],
                         Icons.person,
                         false,
                         _phoneController,
@@ -136,9 +138,9 @@ class CheckOutScreen extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      AllProductCard(product: productSnap),
+                                      ProductCard_CO(product: productSnap),
                                       SizedBox(
-                                        height: 150,
+                                        height: 10,
                                       ),
                                     ],
                                   );

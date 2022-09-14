@@ -40,12 +40,12 @@ class HomeHeader extends StatelessWidget {
           FutureBuilder<DocumentSnapshot>(
             future: FirebaseFirestore.instance
                 .collection('t4tECom')
-                .doc(user!.uid)
+                .doc(user.uid)
                 .get(),
             builder: (context, snapshot) {
-              final data = snapshot.data!;
+              final data = snapshot.data;
               return Text(
-                "Hello, ${data['name']}",
+                "Hello, ${data?['name']}",
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
