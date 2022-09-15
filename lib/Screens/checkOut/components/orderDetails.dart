@@ -1,33 +1,29 @@
-// ignore_for_file: prefer_const_constructors, file_names, deprecated_member_use, void_checks, await_only_futures
+// ignore_for_file: prefer_const_constructors, file_names, deprecated_member_use, void_checks, await_only_futures, unused_import, use_key_in_widget_constructors, dead_code
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:tfortdemo/Screens/cart/cartScreen.dart';
 import 'package:tfortdemo/Screens/checkOut/checkOutScreen.dart';
 import 'package:tfortdemo/Screens/checkOut/components/cardForm.dart';
 import 'package:tfortdemo/constants/firebase.dart';
-import 'package:tfortdemo/controller/cart_controller.dart';
+import 'package:tfortdemo/controller/checkout_controller.dart';
+import 'package:tfortdemo/services/database.dart';
 
 import 'package:tfortdemo/size_confiq.dart';
 import 'package:tfortdemo/utills/colors_utills.dart';
 import 'package:tfortdemo/utills/constants.dart';
 
-class OrderDetails extends StatefulWidget {
-  @override
-  State<OrderDetails> createState() => _OrderDetailsState();
-}
-
-class _OrderDetailsState extends State<OrderDetails> {
-  @override
-  void initState() {
-    super.initState();
-  }
+class orderDetails extends StatelessWidget {
+  orderDetails(
+    TextEditingController nameController,
+  );
 
   @override
   Widget build(BuildContext context) {
+    String subTotal;
+
     User? user = auth.currentUser;
     String uid = user!.uid;
     return Container(
@@ -58,41 +54,31 @@ class _OrderDetailsState extends State<OrderDetails> {
           children: [
             Row(
               children: [
-                // Container(
-                //   padding: EdgeInsets.all(10),
-                //   height: getProportionateScreenHeight(50),
-                //   width: getProportionateScreenWidth(40),
-                //   decoration: BoxDecoration(
-                //     color: Color(0xFFF5F6F9),
-                //     borderRadius: BorderRadius.circular(10),
-                //   ),
-                //   child: SvgPicture.asset(
-                //     "assets/icons/receipt.svg",
-                //     color: hexStringToColor("#5b8c2a"),
-                //   ),
-                // ),
                 Spacer(),
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => cardForm()));
-                  },
-                  child: Text(
-                    "PayHere",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                      color: Colors.grey[700],
-                    ),
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      Text(
+                        "PayHere",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_rounded,
+                        size: 20,
+                        color: Colors.white,
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(
                   width: 10,
-                ),
-                Icon(
-                  Icons.arrow_upward_rounded,
-                  size: 20,
-                  color: kTextColor,
                 ),
               ],
             ),
@@ -121,13 +107,14 @@ class _OrderDetailsState extends State<OrderDetails> {
                             // ignore: prefer_const_literals_to_create_immutables
                             children: [
                               TextSpan(
-                                  text:
-                                      "\$ ${snapshot.data!.data()!['subTotal'].toString()}",
-                                  style: TextStyle(
-                                    fontSize: 25,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  )),
+                                text:
+                                    "\$ ${snapshot.data!.data()!['subTotal'].toString()}",
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ],
                           ),
                         );
@@ -139,21 +126,27 @@ class _OrderDetailsState extends State<OrderDetails> {
                 ),
                 SizedBox(
                   width: getProportionateScreenWidth(200),
+                  height: getProportionateScreenWidth(40),
                   child: FlatButton(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                     onPressed: () {
                       // Navigator.push(
                       //     context,
                       //     MaterialPageRoute(
                       //         builder: (context) => ));
+                      checkoutControl().addToOrder(
+                        user.uid,
+                      );
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => cardForm()));
                     },
                     color: hexStringToColor("#5b8c2a"),
                     child: Text(
-                      "Pay and Order",
+                      "Confirm Order",
                       style: TextStyle(
-                        fontSize: getProportionateScreenWidth(15),
+                        fontSize: getProportionateScreenWidth(17.5),
                         color: Colors.white,
                       ),
                     ),

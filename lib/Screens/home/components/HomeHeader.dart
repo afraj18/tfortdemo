@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tfortdemo/Screens/Feedback/feedback_page.dart';
 import 'package:tfortdemo/Screens/cart/cartScreen.dart';
 import 'package:tfortdemo/Screens/home/components/NavBarButtons.dart';
 import 'package:tfortdemo/Screens/home/components/searchField.dart';
@@ -55,13 +56,13 @@ class HomeHeader extends StatelessWidget {
           ),
           NavBarButton(
             icon: Icon(
-              Icons.feedback_outlined,
+              Icons.chat,
               // color: hexStringToColor("#5b8c2a"),
               // size: 30,
             ),
             press: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CartScreen()));
+                  MaterialPageRoute(builder: (context) => FeedbackPage()));
             },
           ),
           NavBarButton(

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tfortdemo/Screens/AboutUs/aboutUs.dart';
+import 'package:tfortdemo/Screens/Feedback/feedback_page.dart';
 import 'package:tfortdemo/Screens/cart/cartScreen.dart';
 import 'package:tfortdemo/Screens/wishlist/wishlistScreen.dart';
 

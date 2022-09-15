@@ -13,6 +13,7 @@ import 'constants/firebase.dart';
 import 'controller/app_controller.dart';
 
 import 'package:tfortdemo/controller/product_controller.dart';
+
 // void main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
 //   await Firebase.initializeApp();

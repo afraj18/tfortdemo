@@ -11,7 +11,7 @@ import 'package:tfortdemo/reusable_widgets/reusable_widget.dart';
 import 'components/productCard_CO.dart';
 
 class CheckOutScreen extends StatelessWidget {
-  CheckOutScreen({this.id});
+  CheckOutScreen();
 
   String? id;
 
@@ -20,10 +20,8 @@ class CheckOutScreen extends StatelessWidget {
     User? user = auth.currentUser;
 
     TextEditingController _nameController = TextEditingController();
-    TextEditingController _addressController =
-        TextEditingController(text: "Nangalla Thulhiriya");
-    TextEditingController _phoneController =
-        TextEditingController(text: "0767635953");
+    TextEditingController _addressController = TextEditingController();
+    TextEditingController _phoneController = TextEditingController();
 
     return Scaffold(
       appBar: AppBar(
@@ -68,7 +66,7 @@ class CheckOutScreen extends StatelessWidget {
                       final data = snapshot.data!;
                       return reusableTextField(
                         data['address'],
-                        Icons.person,
+                        Icons.home_filled,
                         false,
                         _addressController,
                       );
@@ -86,7 +84,7 @@ class CheckOutScreen extends StatelessWidget {
                       final data = snapshot.data;
                       return reusableTextField(
                         data!['phoneNo'],
-                        Icons.person,
+                        Icons.phone,
                         false,
                         _phoneController,
                       );
@@ -158,7 +156,7 @@ class CheckOutScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: OrderDetails(),
+      bottomNavigationBar: orderDetails(_nameController),
     );
   }
 }
